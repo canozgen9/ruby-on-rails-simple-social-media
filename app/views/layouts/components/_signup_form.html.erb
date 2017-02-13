@@ -1,0 +1,44 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><span class="glyphicon glyphicon-flash" style="font-size:20px;"></span>Sign up</h3>
+  </div>
+  <div class="panel-body">
+    <%= form_for(@user, url: signup_path) do |f| %>
+
+        <%#= render 'shared/error_messages' %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <%= f.label :age %>
+        <%= f.text_field :age, class: 'form-control' %>
+
+        <%= f.label 'Sex' %>
+        <br>
+        <label class="radio-inline">
+          <%= f.radio_button :sex, 'male', :checked => true %>
+          <%= f.label :sex, 'Male', :value => 'male' %>
+        </label>
+        <label class="radio-inline">
+          <%= f.radio_button :sex, 'female' %>
+          <%= f.label :sex, 'Female', :value => 'female' %>
+        </label>
+        <br>
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label 'Confirm your password' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+        <%= f.label :avatar %>
+        <%= f.file_field :avatar %>
+        <br>
+        <%= button_tag(:class => 'btn btn-primary') do %>
+          Sign Up <span class="glyphicon glyphicon-ok"></span>
+        <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<% @posts.each do |post| %>
+    <div class="panel panel-default" style="border-left:3px solid #2196f3">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-10">
+            <%= image_tag(post.user.avatar.url, :class => 'img-rounded', :style => 'max-width:50px;max-height:50px;') if post.user.avatar? %>
+            <b style="color:#555"><%= post.user.name %></b>
+          </div>
+          <div class="col-md-2 text-right" style="color: #999;">
+            <h6>
+              <%= post.created_at.strftime("%d %b %Y \n %H:%M ") %>
+            </h6>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-12">
+            <p><%= post.body %></p>
+          </div>
+        </div>
+
+      </div>
+      <div class="panel-footer text-right">
+        <div class="row">
+          <div class="col-md-1">
+            <% if current_user %>
+                <% if (@current_user.likes.find_by post_id: post.id).nil? %>
+                    <%= button_to '❤ Like', {:controller => "likes", :action => "create", :post_id => post.id, :user_id => @current_user.id}, :method => :post, :class => 'btn btn-default',:style => 'color:#d9534f' %>
+                <% else %>
+                    <button class="btn btn-danger">❤ Liked</button>
+                <% end %>
+            <% end %>
+          </div>
+          <div class="col-md-11 text-right">
+            <% if post.likes.count > 0 %>
+                <p> Likes   <span class="badge" style="background-color: #d9534f"> <%= post.likes.count %></span> :
+                  <% Like.where(post_id: post.id).find_each do |like| %>
+                      <span class="label label-default" style="background-color: #bbb"><%= User.find(like.user_id).name %></span>
+                  <% end %>
+            <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
