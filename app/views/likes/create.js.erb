@@ -1,0 +1,3 @@
+$('#post_like_<%=@like.post_id%>').html('<button class="btn btn-danger">❤ Liked</button>');
+$('#post_likes_<%=@like.post_id%>').append(' <span class="label label-default" style="background-color: #bbb"><%= User.find(@like.user_id).name %></span>');
+$('#post_likes_count_<%=@like.post_id%>').html($('#post_likes_<%=@like.post_id%>').children().length-1);

@@ -2,9 +2,16 @@ class PostsController < ApplicationController
   include SessionsHelper
   def create
     @current_user = current_user
-    @current_user.posts.create(post_params)
     flash["success"] = "Your post successfully sent."
-    redirect_to @current_user
+    respond_to do |format|
+      if (@post = @current_user.posts.create(post_params))
+        format.html { redirect_to request.fullpath, notice: 'post was succesfully created.'}
+        format.json { render :show,status: :created,location: @post }
+        format.js
+      else
+
+      end
+    end
   end
 
   def destroy

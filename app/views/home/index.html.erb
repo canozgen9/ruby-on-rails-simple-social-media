@@ -36,14 +36,15 @@
           <h3 class="panel-title">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active">
-                <a href="#trend" aria-controls="trend" role="tab" data-toggle="tab" style="border-top: 0px; border-left: 0px; border-radius: 0; border-top-left-radius: 5px;">Trend
-                  <span class="glyphicon glyphicon-fire"></span> </a>
-              </li>
-              <li role="presentation">
+              <li role="presentation"  class="active">
                 <a href="#latest" aria-controls="latest" role="tab" data-toggle="tab" style="border-top: 0px; border-radius: 0;">Latest
                   <span class="glyphicon glyphicon-eye-open"></span></a>
               </li>
+              <li role="presentation">
+                <a href="#trend" aria-controls="trend" role="tab" data-toggle="tab" style="border-top: 0px; border-left: 0px; border-radius: 0; border-top-left-radius: 5px;">Trend
+                  <span class="glyphicon glyphicon-fire"></span> </a>
+              </li>
+
               <li role="presentation">
                 <a href="#mostliked" aria-controls="mostliked" role="tab" data-toggle="tab" style="border-top: 0px; border-radius: 0;">Most
                   Liked <span class="glyphicon glyphicon-heart"></span></a></li>
@@ -54,9 +55,9 @@
           <br>
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade in active" id="trend"><%= render 'layouts/components/posts' %></div>
-            <div role="tabpanel" class="tab-pane fade" id="latest"><%= render 'layouts/components/posts' %></div>
-            <div role="tabpanel" class="tab-pane fade" id="mostliked"><%= render 'layouts/components/posts' %></div>
+            <div role="tabpanel" class="tab-pane fade in active" id="latest"><%= render partial: 'layouts/components/posts',locals: {posts: Post.order(id: :desc).limit(10)} %></div>
+            <div role="tabpanel" class="tab-pane fade" id="trend"><%= render partial: 'layouts/components/posts',locals: {posts: Post.trend.limit(10)} %></div>
+            <div role="tabpanel" class="tab-pane fade" id="mostliked"><%= render partial: 'layouts/components/posts',locals: {posts: Post.trend.limit(5)} %></div>
           </div>
 
         </div>

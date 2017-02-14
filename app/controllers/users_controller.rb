@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @current_user = User.find(session[:user_id])
-    @posts = Post.order(id: :desc)
+    @user = User.find(params[:id])
     @like = Like.new
   end
 

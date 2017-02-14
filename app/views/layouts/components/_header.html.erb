@@ -16,10 +16,10 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <% if @current_user %>
-          <li><a href="<%= root_url %>"><span class="glyphicon glyphicon-home" style="font-size:20px;"></span> Home
+          <li class="<% if current_page?('/')%>active<%end%>"><a  href="<%= root_url %>"><span class="glyphicon glyphicon-home" style="font-size:20px;"></span> Home
             <span class="sr-only">(current)</span></a></li>
 
-              <li><a href="<%=users_url%>/<%=@current_user.id%>"><span class="glyphicon glyphicon-user" style="font-size:20px;"></span> Profile</a></li>
+              <li class="<% if @user==@current_user%>active<%end%>" ><a href="<%=users_url%>/<%=@current_user.id%>"><span class="glyphicon glyphicon-user" style="font-size:20px;"></span> Profile</a></li>
           <% end %>
           <%# <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-10 col-md-offset-1 col-xs-12">
       <%- flash.each do |name, msg| -%>
           <div class="alert alert-<%= name %> alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -16,44 +16,49 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3 col-md-offset-1" style="color: #DADADA;">
-      <div class="panel panel-default" style="padding:0;overflow: hidden">
-        <div class="panel-body" style="padding:0;overflow: hidden">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <%= image_tag(@current_user.avatar.url, :class => 'img img-responsive', :style => 'width:100%;border-bottom-right-radius: 0;border:0') if @current_user.avatar? %>
+    <div class="col-md-3 col-md-offset-1 col-xs-12" style="color: #DADADA;">
+      <div class="row">
+        <div class="col-md-12 col-xs-6">
+          <div class="panel panel-default" style="padding:0;overflow: hidden">
+            <div class="panel-body" style="padding:0;overflow: hidden">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <%= image_tag(@user.avatar.url, :class => 'img img-responsive', :style => 'width:100%;border-bottom-right-radius: 0;border:0') if @user.avatar? %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-xs-6">
+          <div class="panel panel-default" style="padding:0; border-left:3px solid #000;background-color: #313131;border-color: #111">
+            <div class="panel-body" style="padding:0;overflow: hidden">
+              <div class="row text-center" style="color:#ccc;padding-top:5px;padding-bottom:5px;background-color: #212121;margin-bottom:20px;">
+                <h4><%= @user.name %></h4>
+              </div>
+              <div class="text-center col-xs-4">
+                <h5><b>Posts</b></h5>
+                <i><h3><%= @user.posts.count %> </h3></i>
+              </div>
+
+              <div class="text-center col-xs-4">
+                <h5><b>Likes</b></h5>
+                <i><h3><%= Like.where(user_id: @user.id).count %> </h3></i>
+              </div>
+
+              <div class="text-center col-xs-4">
+                <h5><b>Age</b></h5>
+                <i><h3><%= @user.age %> </h3></i>
+              </div>
+
+              <div class="text-center col-xs-12" style="margin-bottom: 20px;">
+                <p><%= @user.email %></p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="panel panel-default" style="padding:0; border-left:3px solid #000;background-color: #313131;border-color: #111">
-        <div class="panel-body" style="padding:0;overflow: hidden">
-          <div class="row text-center" style="color:#ccc;padding-top:5px;padding-bottom:5px;background-color: #212121;margin-bottom:20px;">
-            <h4><%= @current_user.name %></h4>
-          </div>
-          <div class="text-center">
-            <h5>Posts</h5>
-            <b><h3><%= @current_user.posts.count %> </h3></b>
-          </div>
-          <div style="width:100%;background-color:#212121;height: 1px;margin-bottom: 10px;"></div>
-          <div class="text-center">
-            <h5>Likes</h5>
-            <b><h3><%= Like.where(user_id: @current_user.id).count %> </h3></b>
-          </div>
-          <div style="width:100%;background-color:#212121;height: 1px;margin-bottom: 10px;"></div>
-          <div class="text-center">
-            <h5>Age</h5>
-            <b><h3><%= @current_user.age %> </h3></b>
-          </div>
-          <div style="width:100%;background-color:#212121;height: 1px;margin-bottom: 10px;"></div>
-          <div class="text-center" style="margin-bottom: 20px;">
-            <%= @current_user.email %>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <div class="col-md-7">
+    <div class="col-md-7 col-xs-12">
       <%= render 'layouts/components/send_post_form' %>
       <%#= render 'layouts/components/slider' %>
       <div class="panel panel-default">
@@ -61,16 +66,9 @@
           <h3 class="panel-title">
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active">
-                <a href="#trend" aria-controls="trend" role="tab" data-toggle="tab" style="border-top: 0px; border-left: 0px; border-radius: 0; border-top-left-radius: 5px;">Trend
+                <a href="#latest" aria-controls="latest" role="tab" data-toggle="tab" style="border-top: 0px; border-left: 0px; border-radius: 0; border-top-left-radius: 5px;">Posts
                   <span class="glyphicon glyphicon-fire"></span> </a>
               </li>
-              <li role="presentation">
-                <a href="#latest" aria-controls="latest" role="tab" data-toggle="tab" style="border-top: 0px; border-radius: 0;">Latest
-                  <span class="glyphicon glyphicon-eye-open"></span></a>
-              </li>
-              <li role="presentation">
-                <a href="#mostliked" aria-controls="mostliked" role="tab" data-toggle="tab" style="border-top: 0px; border-radius: 0;">Most
-                  Liked <span class="glyphicon glyphicon-heart"></span></a></li>
             </ul>
           </h3>
         </div>
@@ -78,9 +76,7 @@
           <br>
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade in active" id="trend"><%= render 'layouts/components/posts' %></div>
-            <div role="tabpanel" class="tab-pane fade" id="latest"><%= render 'layouts/components/posts' %></div>
-            <div role="tabpanel" class="tab-pane fade" id="mostliked"><%= render 'layouts/components/posts' %></div>
+            <div role="tabpanel" class="tab-pane fade in active" id="latest"><%= render partial: 'layouts/components/posts',locals: {posts: @user.posts.order(id: :desc)} %></div>
           </div>
         </div>
       </div>

@@ -1,0 +1,46 @@
+<div class="panel panel-default" style="border-left:3px solid #2196f3" id="post_<%=post.id%>">
+  <div class="panel-body" style="padding-top: 0px;">
+    <div class="row" style="padding-top: 0px;font-size: 10px;">
+      <div class="col-md-12 col-xs-12 text-right" style="color: #999;">
+        <h6>
+          <%= post.created_at.strftime("%d %b %Y %H:%M ") %>
+        </h6>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-xs-12">
+        <a href="<%=users_url%>/<%=post.user.id%>"><%= image_tag(post.user.avatar.url, :class => 'img-rounded', :style => 'max-width:50px;max-height:50px;') if post.user.avatar? %></a>
+        <b style="color:#555"><a href="<%=users_url%>/<%=post.user.id%>"><%= post.user.name %></a></b>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12 col-xs-12">
+        <p><%= post.body %></p>
+      </div>
+    </div>
+
+  </div>
+  <div class="panel-footer text-right">
+    <div class="row">
+      <div class="col-md-2 col-xs-4" id="post_like_<%=post.id%>">
+        <% if current_user %>
+            <% if (@current_user.likes.find_by post_id: post.id).nil? %>
+                <%= button_to '❤ Like', {:controller => "likes", :action => "create", :post_id => post.id, :user_id => @current_user.id}, :method => :post,:class => 'btn btn-default', :style => 'color:#d9534f', :remote => true %>
+            <% else %>
+                <button class="btn btn-danger">❤ Liked</button>
+            <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-10 col-xs-8 text-right">
+        <% if post.likes.count > 0 %>
+            <p id="post_likes_<%=post.id%>"> Likes <span class="badge" style="background-color: #d9534f" id="post_likes_count_<%=post.id%>"> <%= post.likes.count %></span> :
+              <% Like.where(post_id: post.id).find_each do |like| %>
+                  <span class="label label-default" style="background-color: #bbb"><%= User.find(like.user_id).name %></span>
+              <% end %>
+        <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

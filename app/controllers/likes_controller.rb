@@ -1,14 +1,20 @@
 class LikesController < ApplicationController
   include SessionsHelper
   def create
-    like = Like.new
-    like.post_id = params[:post_id]
-    like.user_id = params[:user_id]
-    post = Post.find(params[:post_id])
-    user = post.user
-    like.save
-    flash['success'] = "You liked the post '"+post.body+"'"+" sent by "+user.name+".";
-    redirect_to current_user
+    @like = Like.new
+    @like.post_id = params[:post_id]
+    @like.user_id = params[:user_id]
+    @post = Post.find(params[:post_id])
+    respond_to do |format|
+      if @like.save
+        format.html { redirect_to request.fullpath, notice: 'post was succesfully created.'}
+        format.json { render :show,status: :created,location: @like }
+        format.js
+      else
+
+      end
+    end
+
   end
 
   def destroy

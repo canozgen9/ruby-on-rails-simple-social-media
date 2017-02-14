@@ -1,0 +1,4 @@
+$('.form-control').val('');
+
+$("#latest").prepend('<%= j render partial: 'layouts/components/post',locals: {post: @post} %>');
+$("#post_<%=@post.id%>").hide().fadeIn(1000);
