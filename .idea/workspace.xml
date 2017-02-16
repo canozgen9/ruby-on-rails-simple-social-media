@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6f1b877-b5cf-4edb-b1fb-7b69c112a9a5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.generators" afterPath="$PROJECT_DIR$/.idea/.generators" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.rakeTasks" afterPath="$PROJECT_DIR$/.idea/.rakeTasks" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/PostApp.iml" afterPath="$PROJECT_DIR$/.idea/PostApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Development__PostApp.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Development__PostApp.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/Production__PostApp.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Production__PostApp.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/spec__PostApp.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/spec__PostApp.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/runConfigurations/test__PostApp.xml" afterPath="$PROJECT_DIR$/.idea/runConfigurations/test__PostApp.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/components/_footer.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/components/_footer.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/components/_header.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/components/_header.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/components/_post.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/components/_post.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/components/_posts.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/components/_posts.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/components/_send_post_form.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/components/_send_post_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/components/_signup_form.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/components/_signup_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/components/_slider.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/components/_slider.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/likes/create.js.erb" afterPath="$PROJECT_DIR$/app/views/likes/create.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/posts/create.js.erb" afterPath="$PROJECT_DIR$/app/views/posts/create.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -186,7 +165,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="1969" />
-    <option name="y" value="24" />
+    <option name="y" value="1104" />
     <option name="width" value="1871" />
     <option name="height" value="1056" />
   </component>
@@ -572,7 +551,7 @@
     <option name="totallyTimeSpent" value="62285000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1969" y="24" width="1871" height="1056" extended-state="6" />
+    <frame x="1969" y="1104" width="1871" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24211651" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
